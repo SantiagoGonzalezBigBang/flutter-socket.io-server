@@ -12,7 +12,7 @@
     <script src="socket.io/socket.io.js"></script>
 
     <script>
-        var socket = io();
+        var socket = io();        
 
         socket.on('connect', function () {
             console.log('Conectado al servidor')
@@ -27,6 +27,21 @@
         socket.on('mensaje', function(payload) {
             console.log('Escuchando:', payload);
         });
+
+        socket.on('nuevo-mensaje', function(payload) {
+            console.log('Escuchando:', payload);
+        });
+
+        socket.on('active-bands', function (bands) {
+            console.clear();
+            console.table(bands)
+        });
+
+        // _socket.on('nuevo-mensaje', (data) {
+        //   print('nuevo-mensaje:');
+        //   print('Nombre: ${data['nombre']}');
+        //   print(data.containsKey('mensaje2') ? data['mensaje2'] : 'No hay');
+        // });
 
     </script>
 
